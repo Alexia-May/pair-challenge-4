@@ -28,3 +28,18 @@ def test_winner():
     test = MostOften(list)
     test.add_new(2)
     assert test.get_most_often() == 5
+
+def test_no_winner():
+    list = ["Hello", 1, 2, 4, 5]
+    test = MostOften(list)
+    test.add_new(False)
+    assert test.get_most_often() == "no clear winner"
+
+def test_no_winner_binaries():
+    list = [1, False, True, False, False, 1, 1, False]
+    test = MostOften(list)
+    assert test.get_most_often() == "no clear winner"
+
+def test_no_winner_empty_list():
+    test = MostOften([])
+    assert test.get_most_often() == "no clear winner"
